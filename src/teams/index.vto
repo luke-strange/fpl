@@ -1,0 +1,8 @@
+---
+title: Teams
+---
+<ul>
+{{ for page of search.pages("team")}}
+    <li><a href="{{page.url}}">{{ page.title }}</a></li>
+{{ /for }}
+</ul>

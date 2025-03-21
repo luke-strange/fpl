@@ -1,0 +1,19 @@
+---
+layout: templates/page.vto
+---
+<p><strong>Total players:</strong> {{ totalPlayers }}</p>
+{{ for e of events }}
+    {{ if e.is_current }}
+        {{# {{ e |> dump() }} #}}
+        <h2>{{ e.name }}</h2>
+        <ul>
+            <li>Average score: {{ e.average_entry_score }}</li>
+            <li>Chip plays: {{ e.chip_plays |> dump() }}</li>
+            <li>Most selected: {{ e.most_selected |> dump() }}</li>
+            <li>Most transferred in: {{ e.most_transferred_in |> dump() }}</li>
+            <li>Top player: <a href="/players/{{e.top_element}}/">{{ e.top_element |> dump() }}</a>. {{ e.top_element_info |> dump() }}</li>
+            <li>Most captained: <a href="/players/{{e.most_captained}}/">{{ e.most_captained }}</a></li>
+            <li>Most vice-captained: <a href="/players/{{e.most_vice_captained}}/">{{ e.most_vice_captained }}</a></li>
+        </ul>
+    {{ /if }}
+{{ /for }}

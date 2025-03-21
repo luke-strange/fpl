@@ -1,0 +1,8 @@
+---
+title: Players
+---
+<ul>
+{{ for page of search.pages("player")}}
+    <li><a href="{{page.url}}">{{ page.el.first_name }} {{ page.el.second_name }}</a></li>
+{{ /for }}
+</ul>
