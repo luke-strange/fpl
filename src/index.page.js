@@ -6,7 +6,7 @@ export default async function* () {
         url: '/summary/',
         totalPlayers: index.total_players,
         title: 'Summary',
-        layout: 'templates/summary.vto',
+        layout: 'templates/gw_summary.vto',
         events: index.events
     };
     for (const team of index.teams) {

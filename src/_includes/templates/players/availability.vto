@@ -1,0 +1,20 @@
+
+{{ set chanceNum = el.chance_of_playing_next_round}}
+
+{{ if chanceNum == 0 }}
+    {{ set chanceStr = 'zero'}}
+{{ else if chanceNum == 25 }}
+    {{ set chanceStr = 'low' }}
+{{ else if chanceNum == '50' }}
+    {{ set chanceStr = 'med' }}
+{{ else if chanceNum == 75 }}
+    {{ set chanceStr = 'high' }}
+{{ else if chanceNum == 100 }}
+    {{ set chanceStr = 'noDoubt'}}
+{{ /if }}
+<div class='playerHeader'>
+    <div class='inline-container'>
+        <h2>{{title}}</h2>
+        <span class='availability {{chanceStr}}'>{{chanceNum}}% chance of playing</span>
+    </div>
+</div>

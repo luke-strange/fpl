@@ -1,9 +1,13 @@
-<header class="white-bg">
+<header class="">
   <div class='holder padded'>
     <h1 class='sitetitle'><a href="/">{{site}}</a></h1>
+    <ul class="nav">
+      <li><a href="/about" {{if url == '/about/' }}class='active'{{ /if }}>About</a></li>
+      <li><a href="/"{{if url == '/' }}class='active'{{ /if }}>Home</a></li>
+    </ul>
   </div>
-  <div class='holder padded'>
-    {{ if url != '/' }}
+  {{# {{ if url != '/' && url != '/about/' }}
+    <div class='holder padded'>
         <ul class='breadcrumb'>
             {{ for item of nav.breadcrumb(url) }}
                 <li>
@@ -17,6 +21,7 @@
                 </li>
             {{ /for }}
         </ul>
-    {{ /if }}
-  </div>
+      </div>
+  {{ /if }} #}}
+<div class="light-gradient centred">This site is a work in progress</div>
 </header>

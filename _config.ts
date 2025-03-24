@@ -22,4 +22,16 @@ site.filter("dump", (Object) => {
     return JSON.stringify(Object);
 })
 
+site.filter("formatRank", (num: number) => {
+    if (num == null) {return null};
+    const strNum = Math.abs(num).toString();
+    const n = Number(strNum.slice(-1));
+    if (n==1) {return strNum + 'st'}
+    else if (n==2) {return strNum + 'nd'}
+    else if (n==3) {return strNum + 'rd'}
+    else { return strNum + 'th'}
+})
+
+site.copy("/assets/js/filterList.js");
+
 export default site;
