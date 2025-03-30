@@ -11,6 +11,27 @@ const site = lume({
     location: new URL("https://luke-strange.github.io/fpl"),
 });
 
+site.remoteFile("/assets/images/club/t1.png", "https://resources.premierleague.com/premierleague/badges/50/t1.png");
+site.remoteFile("/assets/images/club/t3.png", "https://resources.premierleague.com/premierleague/badges/50/t3.png");
+site.remoteFile("/assets/images/club/t4.png", "https://resources.premierleague.com/premierleague/badges/50/t4.png");
+site.remoteFile("/assets/images/club/t6.png", "https://resources.premierleague.com/premierleague/badges/50/t6.png");
+site.remoteFile("/assets/images/club/t7.png", "https://resources.premierleague.com/premierleague/badges/50/t7.png");
+site.remoteFile("/assets/images/club/t8.png", "https://resources.premierleague.com/premierleague/badges/50/t8.png");
+site.remoteFile("/assets/images/club/t11.png", "https://resources.premierleague.com/premierleague/badges/50/t11.png");
+site.remoteFile("/assets/images/club/t13.png", "https://resources.premierleague.com/premierleague/badges/50/t13.png");
+site.remoteFile("/assets/images/club/t14.png", "https://resources.premierleague.com/premierleague/badges/50/t14.png");
+site.remoteFile("/assets/images/club/t17.png", "https://resources.premierleague.com/premierleague/badges/50/t17.png");
+site.remoteFile("/assets/images/club/t20.png", "https://resources.premierleague.com/premierleague/badges/50/t20.png");
+site.remoteFile("/assets/images/club/t21.png", "https://resources.premierleague.com/premierleague/badges/50/t21.png");
+site.remoteFile("/assets/images/club/t91.png", "https://resources.premierleague.com/premierleague/badges/50/t91.png");
+site.remoteFile("/assets/images/club/t31.png", "https://resources.premierleague.com/premierleague/badges/50/t31.png");
+site.remoteFile("/assets/images/club/t94.png", "https://resources.premierleague.com/premierleague/badges/50/t94.png");
+site.remoteFile("/assets/images/club/t54.png", "https://resources.premierleague.com/premierleague/badges/50/t54.png");
+site.remoteFile("/assets/images/club/t40.png", "https://resources.premierleague.com/premierleague/badges/50/t40.png");
+site.remoteFile("/assets/images/club/t43.png", "https://resources.premierleague.com/premierleague/badges/50/t43.png");
+site.remoteFile("/assets/images/club/t39.png", "https://resources.premierleague.com/premierleague/badges/50/t39.png");
+site.remoteFile("/assets/images/club/t36.png", "https://resources.premierleague.com/premierleague/badges/50/t36.png");
+
 site.use(base_path());
 site.use(google_fonts({
     fonts: "https://fonts.google.com/share?selection.family=Rubik:ital,wght@0,300..900;1,300..900"
@@ -32,6 +53,14 @@ site.filter("formatRank", (num: number) => {
     else { return strNum + 'th'}
 })
 
-site.copy("/assets/js/filterList.js");
+site.filter("FDR", (num: number) => {
+    if (num==1) return "one";
+    if (num==2) return "two";
+    if (num==3) return "three";
+    if (num==4) return "four";
+    if (num==5) return "five";
+})
 
+site.copy("/assets/js/filterList.js");
+site.copy("/assets/images/club");
 export default site;

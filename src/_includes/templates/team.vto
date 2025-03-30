@@ -1,5 +1,7 @@
 ---
 layout: templates/page.vto
 ---
-{{ comp.objectList({data: team}) }}
-{{ team |> dump() }}
+<img src="/assets/images/club/t{{team.code}}.png" alt="{{team.name}}">
+{{ include "./teams/summary.vto" }}
+{{# {{ comp.objectList({data: team}) }} #}}
+{{# {{ team |> dump() }} #}}

@@ -126,3 +126,10 @@ a.active { background-color: white; color: black;}
 .centred {text-align:center;}
 
 .pageTitle{margin-bottom: 1rem;}
+
+.FDR {padding: 0 0.5rem;}
+.one {background-color: #3e5429;}
+.two {background-color: #73f988;}
+.three {background-color: #E7E7E7;}
+.four {background-color: #EA3956; color: white;}
+.five {background-color: #75182E; color: white;}

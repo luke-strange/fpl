@@ -1,0 +1,18 @@
+<div class='grid'>
+    <div class="dashboard light-gradient padded curved">
+        <h4>League position</h4>
+        <span class="bigNum">{{ team.position |> formatRank() }}</span>
+    </div>
+    <div class="dashboard light-gradient padded curved">
+        <h4>Strength</h4>
+        <span class="bigNum"><span class="FDR curved {{team.strength |> FDR() }}">{{ team.strength }}</span></span>
+    </div>
+    <div class="dashboard light-gradient padded curved">
+        <h4>Overall strength (home)</h4>
+        <span class="bigNum">{{ team.strength_overall_home }}</span>
+    </div>
+    <div class="dashboard light-gradient padded curved">
+        <h4>Overall strength (away)</h4>
+        <span class="bigNum">{{ team.strength_overall_away }}</span>
+    </div>
+</div>
