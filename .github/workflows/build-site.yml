@@ -6,7 +6,7 @@ name: Build site
     # Runs at 6am and 10pm daily
     - cron:  '0 6,22 * * *'
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - 'src/**'
       - '_config.ts'
