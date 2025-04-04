@@ -11,11 +11,12 @@
     {{ set chanceStr = 'high' }}
 {{ else if chanceNum == null }}
     {{ set chanceStr = 'noDoubt'}}
+    {{ set chanceNum = 100 }}
 {{ /if }}
 <div class='playerHeader'>
     <div class='inline-container'>
         <h2>{{title}}</h2>
-        <span class='availability {{chanceStr || 'noDoubt' }}'>{{chanceNum || '100' }}% chance of playing</span>
+        <span class='availability {{ chanceStr || 'noDoubt' }}'>{{ chanceNum }}% chance of playing</span>
     </div>
 </div>
 
