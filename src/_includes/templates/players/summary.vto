@@ -2,17 +2,17 @@
     <div class="dashboard light-gradient padded curved">
         <h4>Current cost</h4>
         <span class="bigNum">£{{ el.now_cost/10 }}m</span>
-        <span class="smallNum">{{el.now_cost_rank |> formatRank() }}</span>
+        <span class="smallNum">{{ el.now_cost_rank |> formatRank() }}</span>
     </div>
     <div class="dashboard light-gradient padded curved">
         <h4>Points per game</h4>
         <span class="bigNum">{{ el.points_per_game }}</span>
-        <span class="smallNum">{{el.points_per_game_rank |> formatRank() }}</span>
+        <span class="smallNum">{{ el.points_per_game_rank |> formatRank() }}</span>
     </div>
     <div class="dashboard light-gradient padded curved">
         <h4>Form</h4>
         <span class="bigNum">{{ el.form }}</span>
-        <span class="smallNum">{{el.form_rank |> formatRank() }}</span>
+        <span class="smallNum">{{ el.form_rank |> formatRank() }}</span>
     </div>
     <div class="dashboard light-gradient padded curved">
         <h4>Selected by</h4>
