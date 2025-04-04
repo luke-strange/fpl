@@ -1,40 +1,39 @@
 ---
 layout: templates/page.vto
 ---
+{{ comp.Updated({updated})}}
 {{ for e of events }}
     {{ if e.is_current }}
         {{# {{ e |> dump() }} #}}
         <h2>{{ e.name }}</h2>
-        <p><strong>Total players:</strong> {{ totalPlayers }}</p>
+        {{# <p><strong>Total players:</strong> {{ totalPlayers }}</p> #}}
         <div class='grid'>
             <div class="dashboard light-gradient padded curved">
                 <h4>Average score</h4>
                 <span class="bigNum">{{ e.average_entry_score }} pts</span>
             </div>
             <div class="dashboard light-gradient padded curved">
-                <h4>Most captained</h4>
-                <span class="bigNum"><a href="/players/{{ e.most_captained }}">{{ e.most_captained }}</a></span>
-            </div>
-            <div class="dashboard light-gradient padded curved">
-                <h4>Most vice captained</h4>
-                <span class="bigNum"><a href="/players/{{ e.most_vice_captained }}">{{ e.most_vice_captained }}</a></span>
+                <h4>Highest score</h4>
+                <span class="bigNum">{{ e.highest_score }} pts</span>
             </div>
             <div class="dashboard light-gradient padded curved">
                 <h4>Top player</h4>
-                <span class="bigNum">{{ e.top_element }}</span>
-                <span class="smallNum">{{e.top_element_info.points}} pts</span>
+                <span class="bigNum"><a href="/players/{{ e.top_element }}">{{ lookups.playerCode2Name[e.top_element] }}</a></span>
+                <span class="smallNum">{{ e.top_element_info.points }} pts</span>
+            </div>
+            <div class="dashboard light-gradient padded curved">
+                <h4>Most transferred in</h4>
+                <span class="bigNum"><a href="/players/{{ e.most_transferred_in }}">{{ lookups.playerCode2Name[e.most_transferred_in] }}</a></span>
+            </div>
+            <div class="dashboard light-gradient padded curved">
+                <h4>Most captained</h4>
+                <span class="bigNum"><a href="/players/{{ e.most_captained }}">{{ lookups.playerCode2Name[e.most_captained] }}</a></span>
+            </div>
+            <div class="dashboard light-gradient padded curved">
+                <h4>Most vice captained</h4>
+                <span class="bigNum"><a href="/players/{{ e.most_vice_captained }}">{{ lookups.playerCode2Name[e.most_vice_captained] }}</a></span>
             </div>
         </div>
-        {{# <ul>
-            <li>Average score: {{ e.average_entry_score }}</li>
-            <li>Chip plays: {{ e.chip_plays |> dump() }}</li>
-            <li>Most selected: {{ e.most_selected |> dump() }}</li>
-            <li>Most transferred in: {{ e.most_transferred_in |> dump() }}</li>
-            <li>Top player: <a href="/players/{{e.top_element}}/">{{ e.top_element |> dump() }}</a>. {{ e.top_element_info |> dump() }}</li>
-            <li>Most captained: <a href="/players/{{e.most_captained}}/">{{ e.most_captained }}</a></li>
-            <li>Most vice-captained: <a href="/players/{{e.most_vice_captained}}/">{{ e.most_vice_captained }}</a></li>
-        </ul> #}}
     {{ else }}
     {{ /if }}
 {{ /for }}
-
