@@ -24,6 +24,7 @@ export default async function* () {
             layout: 'templates/player.vto',
             title: el.web_name,
             tags: 'player',
+            updated: new Date(Date.now()).toLocaleString(),
             el
         };
     }
