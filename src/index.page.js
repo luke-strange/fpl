@@ -2,12 +2,15 @@ import { fetchIt } from "./assets/js/fetch.js";
 
 export default async function* () {
     let index = await fetchIt("https://fantasy.premierleague.com/api/bootstrap-static/");
+    let now = new Date(Date.now()).toLocaleString();
     yield {
         url: '/summary/',
         totalPlayers: index.total_players,
         title: 'Summary',
         layout: 'templates/gw_summary.vto',
-        events: index.events
+        events: index.events,
+        updated: now,
+
     };
     for (const team of index.teams) {
         yield {
@@ -22,9 +25,9 @@ export default async function* () {
         yield {
             url: "/players/" + el.id + "/",
             layout: 'templates/player.vto',
-            title: el.web_name,
+            title: el.first_name + ' ' + el.second_name,
             tags: 'player',
-            updated: new Date(Date.now()).toLocaleString(),
+            updated: now,
             el
         };
     }
