@@ -31,11 +31,11 @@ footer hr.about { margin: 32px 0; border: 0; border-top:1px solid #444; }
 .med, .high {background-color: rgb(255, 230, 91);}
 .noDoubt {background-color: #67E767}
 
-.dashboard {display: flex;flex-direction: column;}
+.dashboard {display: flex;flex-direction: column; text-align: center;}
 
 .grid {display: grid; gap:1em; grid-template-columns: repeat(3, 1fr); padding: 2rem 0;}
 
-.bigNum{margin-right: auto; font-weight: 700; font-size: xx-large; padding: 1rem 0;}
+.bigNum{margin: auto; font-weight: 700; font-size: xx-large; padding: 1rem 0;}
 
 
 /* Container to put stuff in line */
