@@ -2,7 +2,6 @@
 layout: templates/page.vto 
 ---
 {{ include './players/availability.vto' }}
-{{ comp.Updated({updated})}}
 {{ include './players/summary.vto'}}
 {{ include './players/notes.md' |> md }}
 {{# {{ comp.objectList({data: el})}} #}}

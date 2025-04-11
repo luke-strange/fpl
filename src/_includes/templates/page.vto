@@ -5,19 +5,24 @@ layout: templates/base.vto
 
 <div class='main white-bg'>
   <div class='holder padded'>
-    {{ if url != '/' && url != '/about/' }}
-          <ul class='breadcrumb'>
-              {{ for item of nav.breadcrumb(url) }}
-                  <li>
-                      {{ if item.data }}
-                        <a href="{{ item.data.url }}">{{ item.data.title }}</a>
-                      {{ else }}
-                        <span>{{ item.slug }}</span>
-                      {{ /if }}
-                  </li>
-              {{ /for }}
-          </ul>
-    {{ /if }}
+    <div class='inline-left-right'>
+      {{ if url != '/' && url != '/about/' }}
+            <ul class='breadcrumb'>
+                {{ for item of nav.breadcrumb(url) }}
+                    <li>
+                        {{ if item.data }}
+                          <a href="{{ item.data.url }}">{{ item.data.title }}</a>
+                        {{ else }}
+                          <span>{{ item.slug }}</span>
+                        {{ /if }}
+                    </li>
+                {{ /for }}
+            </ul>
+      {{ /if }}
+      {{ if updated }}
+        {{ comp.Updated({updated})}}
+      {{ /if }}
+      </div>
     {{ if tags == 'player'}}
     {{ else }}
       <h2 class='pageTitle'>{{ title }}</h2>

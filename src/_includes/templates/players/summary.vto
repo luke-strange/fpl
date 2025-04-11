@@ -1,29 +1,29 @@
 <div class='grid'>
-    <div class="dashboard light-gradient padded curved">
+    <div class="dashboard light-gradient padded rounded">
         <h4>Current cost</h4>
         <span class="bigNum">£{{ el.now_cost/10 }}m</span>
         <span class="smallNum">{{ el.now_cost_rank |> formatRank() }}</span>
     </div>
-    <div class="dashboard light-gradient padded curved">
+    <div class="dashboard light-gradient padded rounded">
         <h4>Points per game</h4>
         <span class="bigNum">{{ el.points_per_game }}</span>
         <span class="smallNum">{{ el.points_per_game_rank |> formatRank() }}</span>
     </div>
-    <div class="dashboard light-gradient padded curved">
+    <div class="dashboard light-gradient padded rounded">
         <h4>Form</h4>
         <span class="bigNum">{{ el.form }}</span>
         <span class="smallNum">{{ el.form_rank |> formatRank() }}</span>
     </div>
-    <div class="dashboard light-gradient padded curved">
+    <div class="dashboard light-gradient padded rounded">
         <h4>Selected by</h4>
         <span class="bigNum">{{ el.selected_by_percent }}%</span>
         <span class="smallNum">{{ el.selected_rank |> formatRank() }}</span>
     </div>
-    <div class="dashboard light-gradient padded curved">
+    <div class="dashboard light-gradient padded rounded">
         <h4>Total points</h4>
         <span class="bigNum">{{ el.total_points }}</span>
     </div>
-    <div class="dashboard light-gradient padded curved">
+    <div class="dashboard light-gradient padded rounded">
         <div style='margin:auto;'>
             <div class=inline-container>
                 <h4>Net transfers in</h4>
@@ -37,7 +37,7 @@
         </div>
         <span class="bigNum">{{ el.transfers_in_event - el.transfers_out_event }}</span>
     </div>
-    <div class="dashboard light-gradient padded curved">
+    <div class="dashboard light-gradient padded rounded">
         {{ set change = el.cost_change_event }}
         <h4>Price change</h4>
         <span class="bigNum">{{ if change > 0 }}+{{ else }}{{ /if }}{{ el.cost_change_event / 10 }}m</span>

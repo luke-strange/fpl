@@ -62,5 +62,6 @@ site.filter("FDR", (num: number) => {
 })
 
 site.copy("/assets/js/filterList.js");
+site.copy("/assets/js/sortable.js");
 site.copy("/assets/images/club");
 export default site;
