@@ -7,28 +7,28 @@ layout: templates/page.vto
         <h2>{{ e.name }}</h2>
         {{# <p><strong>Total players:</strong> {{ totalPlayers }}</p> #}}
         <div class='grid'>
-            <div class="dashboard light-gradient padded rounded">
+            <div class="dashboard dark-gradient padded rounded">
                 <h4>Average score</h4>
                 <span class="bigNum">{{ e.average_entry_score }} pts</span>
             </div>
-            <div class="dashboard light-gradient padded rounded">
+            <div class="dashboard dark-gradient padded rounded">
                 <h4>Highest score</h4>
                 <span class="bigNum">{{ e.highest_score }} pts</span>
             </div>
-            <div class="dashboard light-gradient padded rounded">
+            <div class="dashboard dark-gradient padded rounded">
                 <h4>Top player</h4>
                 <span class="bigNum"><a href="/players/{{ e.top_element }}">{{ lookups.playerCode2Name[e.top_element] }}</a></span>
                 <span class="smallNum">{{ e.top_element_info.points }} pts</span>
             </div>
-            <div class="dashboard light-gradient padded rounded">
+            <div class="dashboard dark-gradient padded rounded">
                 <h4>Most transferred in</h4>
                 <span class="bigNum"><a href="/players/{{ e.most_transferred_in }}">{{ lookups.playerCode2Name[e.most_transferred_in] }}</a></span>
             </div>
-            <div class="dashboard light-gradient padded rounded">
+            <div class="dashboard dark-gradient padded rounded">
                 <h4>Most captained</h4>
                 <span class="bigNum"><a href="/players/{{ e.most_captained }}">{{ lookups.playerCode2Name[e.most_captained] }}</a></span>
             </div>
-            <div class="dashboard light-gradient padded rounded">
+            <div class="dashboard dark-gradient padded rounded">
                 <h4>Most vice captained</h4>
                 <span class="bigNum"><a href="/players/{{ e.most_vice_captained }}">{{ lookups.playerCode2Name[e.most_vice_captained] }}</a></span>
             </div>

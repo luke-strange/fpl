@@ -3,7 +3,7 @@ layout: templates/base.vto
 ---
 {{ include './partials/header.vto' }}
 
-<div class='main white-bg'>
+{{# <div class='main white-bg'>
   <div class='holder padded'>
     <div class='inline-left-right'>
       {{ if url != '/' && url != '/about/' }}
@@ -29,6 +29,14 @@ layout: templates/base.vto
     {{ /if }}
     {{ content }}
   </div>
+</div> #}}
+
+<div class="main black-bg">
+<ul class='home-nav'>
+  <li><a {{if url == '/' }} class="active"{{ /if }} href="/">Home</a></li>
+  <li><a {{if url == '/players/' }} class="active"{{ /if }} href="/players/">Players</a></li>
+</ul>
+{{content}}
 </div>
 
 {{ include './partials/footer.vto' }}

@@ -43,11 +43,11 @@ export default async function* () {
             el
         };
     }
-    yield {
-        url: "/transfers/price-changes/",
-        layout: 'templates/transfer.vto',
-        title: 'Price changes',
-        price_changes,
-        updated: now
-    }
+    // yield {
+    //     url: "/transfers/price-changes/",
+    //     layout: 'templates/transfer.vto',
+    //     title: 'Price changes',
+    //     price_changes,
+    //     updated: now
+    // }
 }
