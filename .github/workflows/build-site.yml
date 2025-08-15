@@ -1,4 +1,4 @@
-name: Build and Deploy Site (revamp)
+name: Build and Deploy Site (revamp) (test)
 
 'on':
   workflow_dispatch: {}
