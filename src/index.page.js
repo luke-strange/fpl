@@ -11,15 +11,15 @@ export default async function* () {
             chartY.push(e.average_entry_score);
         }
     }
-    yield {
-        url: '/summary/',
-        totalPlayers: index.total_players,
-        title: 'Summary',
-        layout: 'templates/gw_summary.vto',
-        events: index.events,
-        updated: now,
-        chartData: [chartX.map(String), chartY.map(Number)]
-    };
+    // yield {
+    //     url: '/summary/',
+    //     totalPlayers: index.total_players,
+    //     title: 'Summary',
+    //     layout: 'templates/gw_summary.vto',
+    //     events: index.events,
+    //     updated: now,
+    //     chartData: [chartX.map(String), chartY.map(Number)]
+    // };
     for (const team of index.teams) {
         yield {
             url: "/teams/" + `${team.short_name}`.toLowerCase() + "/",
