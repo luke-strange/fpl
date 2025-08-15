@@ -1,39 +1,88 @@
-name: Build and Deploy Site (revamp) (test)
+name: Build site
+
+
 
 'on':
+
   workflow_dispatch: {}
+
+  schedule:
+
+    # Runs at 6am and 10pm daily
+
+    - cron:  '0 6,22 * * *'
+
   push:
-    branches: [ revamp ]
+
+
+    branches: [ main, revamp ]
+
     paths:
+
       - 'src/**'
+
       - '_config.ts'
+
       - 'deno.json'
+
       - '.github/workflows/build-site.yml'
 
+
+
 jobs:
+
+  # Build job
+
   build:
+
     runs-on: ubuntu-latest
+
+
+
     steps:
+
       - name: Build the site
+
         uses: dringtech/lume-build@v3
 
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./_site  # Lume's default output directory
+
+
+  # Deploy job
 
   deploy:
+
+    # Add a dependency to the build job
+
     needs: build
+
+
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+
     permissions:
-      pages: write
-      id-token: write
+
+      pages: write      # to deploy to Pages
+
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+
+
+    # Deploy to the github-pages environment
 
     environment:
+
       name: github-pages
+
       url: ${{ steps.deployment.outputs.page_url }}
 
+
+
+    # Specify runner + deployment step
+
     runs-on: ubuntu-latest
+
     steps:
+
       - name: Deploy to GitHub Pages
+
         id: deployment
-        uses: actions/deploy-pages@v4
