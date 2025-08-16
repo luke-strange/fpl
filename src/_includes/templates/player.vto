@@ -1,7 +1,11 @@
 ---
 layout: templates/page.vto 
 ---
+{{# {{ detailedPlayerData |> JSON.stringify }} #}}
 {{ include './players/availability.vto' }}
 {{ include './players/summary.vto'}}
+
+<h2>Fixtures</h2>
+{{ comp.fixtures({detailedPlayerData})}}
 {{# {{ include './players/notes.md' |> md }} #}}
 {{# {{ comp.objectList({data: el})}} #}}

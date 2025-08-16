@@ -5,6 +5,11 @@
         <span class="smallNum">{{ el.now_cost_rank |> formatRank() }}</span>
     </div>
     <div class="dashboard dark-gradient padded rounded">
+        <h4>Points per million</h4>
+        <span class="bigNum">{{ el.total_points / (el.now_cost/10) |> toFixed(2) }}</span>
+        {{# <span class="smallNum">{{ el.now_cost_rank |> formatRank() }}</span> #}}
+    </div>
+    <div class="dashboard dark-gradient padded rounded">
         <h4>Points per game</h4>
         <span class="bigNum">{{ el.points_per_game }}</span>
         <span class="smallNum">{{ el.points_per_game_rank |> formatRank() }}</span>

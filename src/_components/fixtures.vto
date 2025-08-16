@@ -1,0 +1,12 @@
+<div class="carousel">
+    {{ for f of detailedPlayerData.fixtures }}
+        {{ if f.is_home == true }}
+            {{ set opp = f.team_a }}
+            {{ set ind = "(H)"}}
+        {{ else }}
+            {{ set opp = f.team_h }}
+            {{ set ind = "(A)"}}
+        {{ /if }}
+    <div class='fdr fdr-{{f.difficulty}}'><span>{{ f.difficulty }}</span><span>{{lookups.teams[opp].short_name}} {{ind}}</span></div>
+    {{ /for }}
+</div>
