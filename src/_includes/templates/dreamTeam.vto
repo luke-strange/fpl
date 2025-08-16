@@ -1,0 +1,15 @@
+---
+layout: templates/page.vto
+---
+{{# {{ index |> JSON.stringify }} #}}
+{{# {{ index.team |> JSON.stringify}} #}}
+
+<div>
+    <h2 class="">GW {{gw}}</h2>
+    {{# Maybe add a drop down here to let user select GW #}}
+    <ul class='dream-team'>
+        {{ for item of index.team }}
+            <li {{ if item.element == topPlayerId }}class="topPlayer"{{ /if }}><a href="/players/{{item.element}}">{{ lookups.playerCode2Name[item.element] }}</a>: {{ item.points }}</li>
+        {{ /for }}
+    </ul>
+</div>

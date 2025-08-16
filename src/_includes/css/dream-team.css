@@ -1,0 +1,24 @@
+.dream-team {
+    padding: 0;
+}
+
+.dream-team a {
+    text-decoration: none;
+}
+
+.dream-team li {
+    list-style: none;
+}
+
+.dream-team a:hover, .dream-team a:focus {
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.topPlayer {
+    border: 1px solid var(--bright-green);
+    border-radius: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    display: inline;
+}
