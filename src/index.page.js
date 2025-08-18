@@ -45,11 +45,11 @@ export default async function* () {
             detailedPlayerData
         };
     }
-    // yield {
-    //     url: "/transfers/price-changes/",
-    //     layout: 'templates/transfer.vto',
-    //     title: 'Price changes',
-    //     price_changes,
-    //     updated: now
-    // }
+    yield {
+        url: "/price-changes/",
+        layout: 'templates/transfers/price_changes.vto',
+        title: 'Price changes',
+        price_changes,
+        updated: now
+    }
 }

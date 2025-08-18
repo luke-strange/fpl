@@ -1,3 +1,6 @@
+---
+layout: templates/page.vto
+---
 <table>
         <tr>
             <th>Player</th>
@@ -6,7 +9,7 @@
     {{ for pc of price_changes }}
         <tr>
             <td><a href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id] }}</a></td>
-            <td class="{{ if pc.cost_change_event > 0 }}price-increase{{ else }}price-decrease{{ /if }}">{{ pc.cost_change_event }}</td>
+            <td><span class="pill {{ if pc.cost_change_event > 0 }}price-increase{{ else }}price-decrease{{ /if }}">{{ pc.cost_change_event }}</span></td>
         </tr>
     {{ /for }}
 </table>
