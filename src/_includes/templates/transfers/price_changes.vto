@@ -1,16 +1,23 @@
 ---
 layout: templates/page.vto
 ---
-<table>
+{{# <table>
         <tr>
             <th>Player</th>
             <th>Price change</th>
         </tr>
     {{ for pc of price_changes }}
         <tr>
-            <td><a href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id] }}</a></td>
+            <td><a href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a></td>
             <td><span class="pill {{ if pc.cost_change_event > 0 }}price-increase{{ else }}price-decrease{{ /if }}">{{ pc.cost_change_event }}</span></td>
         </tr>
     {{ /for }}
 </table>
-<script src="/assets/js/sortable.js"></script>
+<script src="/assets/js/sortable.js"></script> #}}
+
+<h2>Changes</h2>
+<ul style='list-style-type:none;margin:0;padding: 0;'>
+    {{ for pc of price_changes }}
+        <li style='padding-block: 0.1em;'><span class="pill {{ if pc.cost_change_event > 0 }}price-increase{{ else }}price-decrease{{ /if }}"><a style='color: inherit;' href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a>: {{ pc.cost_change_event }}</span></li>
+    {{ /for }}
+</ul>

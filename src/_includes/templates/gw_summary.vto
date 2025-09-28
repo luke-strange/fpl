@@ -17,20 +17,20 @@ layout: templates/page.vto
             </div>
             <div class="dashboard dark-gradient padded rounded">
                 <h4>Top player</h4>
-                <span class="bigNum"><a href="/players/{{ e.top_element }}">{{ lookups.playerCode2Name[e.top_element] }}</a></span>
+                <span class="bigNum"><a href="/players/{{ e.top_element }}">{{ lookups.playerCode2Name[e.top_element]['web_name'] }}</a></span>
                 <span class="smallNum">{{ e.top_element_info.points }} pts</span>
             </div>
             <div class="dashboard dark-gradient padded rounded">
                 <h4>Most transferred in</h4>
-                <span class="bigNum"><a href="/players/{{ e.most_transferred_in }}">{{ lookups.playerCode2Name[e.most_transferred_in] }}</a></span>
+                <span class="bigNum"><a href="/players/{{ e.most_transferred_in }}">{{ lookups.playerCode2Name[e.most_transferred_in]['web_name'] }}</a></span>
             </div>
             <div class="dashboard dark-gradient padded rounded">
                 <h4>Most captained</h4>
-                <span class="bigNum"><a href="/players/{{ e.most_captained }}">{{ lookups.playerCode2Name[e.most_captained] }}</a></span>
+                <span class="bigNum"><a href="/players/{{ e.most_captained }}">{{ lookups.playerCode2Name[e.most_captained]['web_name'] }}</a></span>
             </div>
             <div class="dashboard dark-gradient padded rounded">
                 <h4>Most vice captained</h4>
-                <span class="bigNum"><a href="/players/{{ e.most_vice_captained }}">{{ lookups.playerCode2Name[e.most_vice_captained] }}</a></span>
+                <span class="bigNum"><a href="/players/{{ e.most_vice_captained }}">{{ lookups.playerCode2Name[e.most_vice_captained]['web_name'] }}</a></span>
             </div>
         </div>
     {{ else }}

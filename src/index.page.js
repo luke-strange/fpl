@@ -1,26 +1,39 @@
 import { fetchIt } from "./assets/js/fetch.js";
 
 export default async function* () {
-    let index = await fetchIt("https://fantasy.premierleague.com/api/bootstrap-static/");
+    let bootstrap = await fetchIt("https://fantasy.premierleague.com/api/bootstrap-static/");
     let now = new Date(Date.now()).toLocaleString();
-    const chartX = [];
-    const chartY = [];
-    for (const e of index.events){
-        if (e.finished == true){
-            chartX.push(e.name);
-            chartY.push(e.average_entry_score);
-        }
-    }
     // yield {
     //     url: '/summary/',
-    //     totalPlayers: index.total_players,
+    //     totalPlayers: bootstrap.total_players,
     //     title: 'Summary',
     //     layout: 'templates/gw_summary.vto',
-    //     events: index.events,
+    //     events: bootstrap.events,
     //     updated: now,
     //     chartData: [chartX.map(String), chartY.map(Number)]
     // };
-    for (const team of index.teams) {
+    let gw;
+    for (const e of bootstrap.events) {
+        if (e.is_current == true){
+            gw = e.id;
+            break
+        }
+    }
+    if (gw != null) {
+        let index = await fetchIt(`https://fantasy.premierleague.com/api/dream-team/${gw}/`);
+        // let now = new Date(Date.now()).toLocaleString();
+        let topPlayerId = index.top_player.id;
+        yield {
+            url: "/",
+            layout: 'templates/dreamTeam.vto',
+            title: 'Home',
+            gw,
+            // updated: now,
+            index,
+            topPlayerId
+        }
+    }
+    for (const team of bootstrap.teams) {
         yield {
             url: "/teams/" + `${team.short_name}`.toLowerCase() + "/",
             layout: 'templates/team.vto',
@@ -30,7 +43,7 @@ export default async function* () {
         };
     }
     const price_changes = [];
-    for (const el of index.elements) {
+    for (const el of bootstrap.elements) {
         if (el.cost_change_event != 0 && el.cost_change_event != null){
             price_changes.push({"id": el.id, "cost_change_event": el.cost_change_event/10});
         }
