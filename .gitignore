@@ -5,3 +5,5 @@ pipelines
 Pipfile
 Pipfile.lock
 notes.txt
+.DS_Store
+data/

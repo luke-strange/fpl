@@ -1,6 +1,11 @@
 <header class="">
   <div class='holder padded'>
     <h1 class='sitetitle'><a href="/">{{site}}</a></h1>
+      <ul class='home-nav'>
+        <li><a {{if url == '/' }} class="active"{{ /if }} href="/">Home</a></li>
+        <li><a {{if url.match('^/players/') }} class="active"{{ /if }} href="/players/">Players</a></li>
+        <li><a {{if url == '/price-changes/' }} class="active"{{ /if }} href="/price-changes">Price changes</a></li>
+      </ul>
     {{# <ul class="nav">
       <li><a href="/about" {{if url == '/about/' }}class='active'{{ /if }}>About</a></li>
       <li><a href="/"{{if url == '/' }}class='active'{{ /if }}>Home</a></li>

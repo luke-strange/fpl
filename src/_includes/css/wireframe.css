@@ -161,8 +161,6 @@ header a {color: white;}
 .nav a:hover{background-color: white;color: black;transition-duration: 0.3s;}
 .active { color: white!important;}
 
-.centred {text-align:center;}
-
 .pageTitle{margin-bottom: 1rem;}
 
 .FDR {padding: 0 0.5rem;}
@@ -186,6 +184,9 @@ td {text-align: center; padding: 1em 0;}
     list-style: none;
     margin-bottom: 1rem;
     padding: 0;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .home-nav a {
@@ -296,4 +297,25 @@ input[type=text] {
     flex-shrink:0;
     border-radius:4px;
     min-width:75px
+}
+
+tr:nth-child(even){background-color: #bbb;color:black}
+tr:nth-child(odd){background-color: black;color:var(--grey)}
+tr:hover {}
+table {
+    margin-bottom: 2rem;
+}
+details {
+    border: 1.5px solid var(--grey);
+    border-radius: 10px;
+    color: var(--off-white);
+    margin: 2rem 0 2rem 0;
+}
+
+details summary {
+    padding: 1rem;
+}
+
+summary:hover, summary:active {
+    color: white;
 }

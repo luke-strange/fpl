@@ -48,3 +48,19 @@
         <span class="bigNum">{{ if change > 0 }}+{{ else }}{{ /if }}{{ el.cost_change_event / 10 }}m</span>
     </div>
 </div>
+
+<details>
+<summary><strong>Detailed data</strong></summary>
+    <table>
+    <tr>
+        <th>Metric</th>
+        <th>Value</th>
+    </tr>
+    {{ for key, value of el }}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{if value}}{{ value }}{{else}}--{{/if}}</td>
+        </tr>
+    {{ /for }}
+    </table>
+</details>

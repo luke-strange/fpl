@@ -15,10 +15,23 @@
     transition-duration: 0.3s;
 }
 
-.topPlayer {
+/* .topPlayer {
     border: 1px solid var(--bright-green);
     border-radius: 4px;
     padding-left: 4px;
     padding-right: 4px;
     display: inline;
+} */
+
+.topPlayer::before{
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    -moz-border-radius: 2.5px;
+    -webkit-border-radius: 2.5px;
+    border-radius: 2.5px;
+    background-color: var(--bright-green);
+    margin-right: 2.5px;
+    translate: 0 -3px;
 }
