@@ -1,23 +1,13 @@
 ---
 layout: templates/page.vto
 ---
-{{# <table>
-        <tr>
-            <th>Player</th>
-            <th>Price change</th>
-        </tr>
-    {{ for pc of price_changes }}
-        <tr>
-            <td><a href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a></td>
-            <td><span class="pill {{ if pc.cost_change_event > 0 }}price-increase{{ else }}price-decrease{{ /if }}">{{ pc.cost_change_event }}</span></td>
-        </tr>
-    {{ /for }}
-</table>
-<script src="/assets/js/sortable.js"></script> #}}
-
 <h2>Changes</h2>
-<ul style='list-style-type:none;margin:0;padding: 0;'>
+<ul style='list-style-type:none;margin:0;padding:0;'>
     {{ for pc of price_changes }}
-        <li style='padding-block: 0.1em;'><span class="pill {{ if pc.cost_change_event > 0 }}price-increase{{ else }}price-decrease{{ /if }}"><a style='color: inherit;' href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a>: {{ pc.cost_change_event }}</span></li>
+        {{# <li style='padding-block: 0.1em;'><span class="pill {{ if pc.cost_change_event > 0 }}price-increase{{ else }}price-decrease{{ /if }}"><a style='color: inherit;' href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a>: {{ pc.cost_change_event }}</span></li> #}}
+        {{ set rotation = 225 }}
+        {{ set col = "var(--bright-green)" }}
+        {{ if pc.cost_change_event < 0 }} {{ set rotation = 45 }} {{ set col = "var(--bright-red)" }}{{ /if }}
+        <li class="chevron" style="--chev-rotation:{{rotation}}deg;--chev-colour:{{col}}"><a style='color: inherit;' href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a>: {{ pc.cost_change_event }}</li>
     {{ /for }}
 </ul>

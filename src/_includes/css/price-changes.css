@@ -1,8 +1,21 @@
-table a:hover, table a:focus {
-    color: white;
-    transition: color 0.3s ease-in;
+.chevron::before {
+  content: "";
+  position: absolute;
+  left: 0;                         /* align the chevron on the left */
+  top: 50%;
+  transform: translateY(-50%) rotate(var(--chev-rotation)); /* rotate to make a chevron */
+  width: .45rem;
+  height: .45rem;
+  border-right: 2px solid var(--chev-colour);
+  border-bottom: 2px solid var(--chev-colour);
+  box-sizing: border-box;
+  pointer-events: none;
 }
 
-table a {
-    text-decoration: none;
+li.chevron {
+    position: relative;
+    padding-left: 1rem;
+    --chev-rotation: 45deg;
+    --chev-colour: var(--bright-green);
+    padding-block: 0.25rem;
 }
