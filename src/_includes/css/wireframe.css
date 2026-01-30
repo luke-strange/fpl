@@ -284,7 +284,8 @@ input[type=text] {
 
 .carousel {
     display:flex;
-    overflow:scroll;
+    max-width: 100%;
+    overflow-x: auto;
     gap:0.25rem;
 }
 
