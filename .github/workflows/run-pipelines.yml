@@ -1,0 +1,45 @@
+name: Run pipelines
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Midnight first day of month
+    - cron:  '0 0 1 * *'
+  push:
+    branches: [ main ]
+    paths:
+      - pipelines/bootstrap_static.py
+      - '.github/workflows/run-pipelines.yml'
+
+jobs:
+  # Build job
+  run-pipelines:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: latest
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Run pipeline
+        run: uv run python pipelines/bootstrap_static.py
+      
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "pipeline(auto): run pipelines"
+          file_pattern: "data/lookups/*.json "
+          branch: main
