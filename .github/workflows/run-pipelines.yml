@@ -11,6 +11,9 @@ on:
       - pipelines/bootstrap_static.py
       - '.github/workflows/run-pipelines.yml'
 
+permissions:
+  contents: write
+
 jobs:
   # Build job
   run-pipelines:
