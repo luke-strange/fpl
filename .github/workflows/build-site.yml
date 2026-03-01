@@ -3,7 +3,7 @@ name: Publish on GitHub Pages
 on:
   workflow_dispatch: {}
   workflow_run:
-    workflows: ["pipeline"]
+    workflows: ["Run pipelines"]
     types:
       - completed
   push:
