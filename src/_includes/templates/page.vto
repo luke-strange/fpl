@@ -33,6 +33,9 @@ layout: templates/base.vto
 
 <div class="main black-bg">
 {{content}}
+{{ if message }}
+<p style="justify-content:center;diplsay:flex;">{{ message }}</p>
+{{ /if }}
 </div>
 
 {{ include './partials/footer.vto' }}

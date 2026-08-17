@@ -31,8 +31,8 @@ h1, h2, h3, h4 { font-weight: 350; font-family: "Rubik";}
 .holder { position: relative; width: 1080px; max-width: 100%; margin: auto; }
 
 footer {
-    /* display: flex;  */
-    /* justify-content: center; */
+    display: flex; 
+    justify-content: center;
     background-color: #000;
     color: #ffffff;
     margin-top: 4rem;

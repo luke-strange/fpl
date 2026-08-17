@@ -33,6 +33,14 @@ export default async function* () {
             topPlayerId
         }
     }
+    else {
+        yield {
+            url: "/",
+            layout: 'templates/page.vto',
+            title: 'Home',
+            message: "Awaiting start of the 2026/27 season..."
+        }
+    }
     for (const team of bootstrap.teams) {
         yield {
             url: "/teams/" + `${team.short_name}`.toLowerCase() + "/",
