@@ -59,7 +59,7 @@
     {{ for key, value of el }}
         <tr>
             <td>{{ key }}</td>
-            <td>{{if value}}{{ value }}{{else}}--{{/if}}</td>
+            <td>{{if value}}{{if key == 'price_change_projections' }}{{ value |> dump() }}{{ else }}{{ value }}{{ /if }}{{else}}--{{/if}}</td>
         </tr>
     {{ /for }}
     </table>

@@ -51,20 +51,26 @@ export default async function* () {
         };
     }
     const price_changes = [];
+    var c = 0;
     for (const el of bootstrap.elements) {
         if (el.cost_change_event != 0 && el.cost_change_event != null){
             price_changes.push({"id": el.id, "cost_change_event": el.cost_change_event/10});
         }
-        let detailedPlayerData = await fetchIt(`https://fantasy.premierleague.com/api/element-summary/${el.id}/`);
         yield {
             url: "/players/" + el.id + "/",
             layout: 'templates/player.vto',
             title: el.first_name + ' ' + el.second_name,
             tags: 'player',
             updated: now,
+            id: el.id,
             el,
-            detailedPlayerData
         };
+        c += 1;
+        if (Deno.env.get("DEV")=='true') {
+            if (c == 10) {
+                break;
+            }
+        }
     }
     yield {
         url: "/price-changes/",

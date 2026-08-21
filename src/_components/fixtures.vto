@@ -1,5 +1,5 @@
 <div class="carousel">
-    {{ for f of detailedPlayerData.fixtures }}
+    {{ for f of fixtures }}
         {{ if f.is_home == true }}
             {{ set opp = f.team_a }}
             {{ set ind = "(H)"}}
