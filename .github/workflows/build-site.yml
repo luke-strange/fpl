@@ -44,7 +44,9 @@ jobs:
         run: uv sync --frozen
 
       - name: Run pipeline
-        run: uv run python pipelines/bootstrap_static.py
+        run: |
+          mkdir -p src/_data/elements
+          uv run python pipelines/bootstrap_static.py
 
       - name: Build site
         run: deno task build
