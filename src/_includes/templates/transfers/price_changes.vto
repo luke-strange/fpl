@@ -3,11 +3,19 @@ layout: templates/page.vto
 ---
 <h2>Changes</h2>
 <ul style='list-style-type:none;margin:0;padding:0;'>
+    {{ set prev_team = '' }}
     {{ for pc of price_changes }}
         {{# <li style='padding-block: 0.1em;'><span class="pill {{ if pc.cost_change_event > 0 }}price-increase{{ else }}price-decrease{{ /if }}"><a style='color: inherit;' href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a>: {{ pc.cost_change_event }}</span></li> #}}
         {{ set rotation = 225 }}
         {{ set col = "var(--bright-green)" }}
         {{ if pc.cost_change_event < 0 }} {{ set rotation = 45 }} {{ set col = "var(--bright-red)" }}{{ /if }}
-        <li class="chevron" style="--chev-rotation:{{rotation}}deg;--chev-colour:{{col}}"><a style='color: inherit;' href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a>: {{ pc.cost_change_event }}</li>
+            {{ set team = lookups.playerCode2Name[pc.id]['team'] }}
+                {{ if prev_team != team }}
+                    <h4 style="padding-top:1rem;">{{ lookups.teams[team]["name"] }}</h4>
+                    {{ set prev_team = team }}
+                {{ /if }}
+        <li class="chevron" style="--chev-rotation:{{rotation}}deg;--chev-colour:{{col}}">
+            <a style='color: inherit;' href="/players/{{pc.id}}">{{ lookups.playerCode2Name[pc.id]['web_name'] }}</a>: {{ pc.cost_change_event }}
+        </li>
     {{ /for }}
 </ul>

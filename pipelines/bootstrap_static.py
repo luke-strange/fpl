@@ -31,6 +31,7 @@ if __name__ == "__main__":
             e["id"]: {
                 "web_name": e["web_name"],
                 "full_name": e["first_name"] + " " + e["second_name"],
+                "team": e["team"]
             }
             for e in elements
         }
